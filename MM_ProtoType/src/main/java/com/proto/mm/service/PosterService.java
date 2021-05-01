@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,19 +59,24 @@ public class PosterService {
 			posters.add(poster);
 		}
 		model.addAttribute("posters", posters);
+		
+		Path relativePath = Paths.get("/poster");
+	      String path = relativePath.toAbsolutePath().toString();
+	      System.out.println("Working Directory = " + path);
+	      
+			Path relativePath2 = Paths.get("/poster/MM/movie_imgs/190584.png/");
+		      String path2 = relativePath.toAbsolutePath().toString();
+		      System.out.println("Working Directory = " + path2);
+			
+	      
+	    
+	      
 		System.out.println(servletContext.getRealPath("/poster"));
-		String path = servletContext.getRealPath("/MM/movie_imgs/194485.png/");
+		System.out.println(servletContext.getRealPath("/poster/MM/movie_imgs/190584.png/"));
+		
 		String absolutePath = System.getProperty("user.dir");;
 		System.out.println(absolutePath);
 		
-		Resource resource = new FileSystemResource(path);
-	    try {
-			path = resource.getFile().getAbsolutePath();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    System.out.println("path ==>" + path);
 		
 		return model;
 	}
