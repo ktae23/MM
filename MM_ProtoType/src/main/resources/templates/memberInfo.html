@@ -14,6 +14,7 @@
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">NAME</th>
+				<th scope="col">PHONE</th>
 				<th scope="col">PREFERENCES</th>
 			</tr>
 	</thead>
@@ -21,6 +22,7 @@
 			<tr>
 				<td><span th:text="${member.id}"></span></td>
 				<td><span th:text="${member.name}"></span></td>
+				<td><span th:text="${member.phone}"></span></td>
 				<td><span th:text="${member.preference}"></span></td>
 			</tr>
 		
@@ -66,7 +68,7 @@
 		<div>총 구매 건수 : 0</div>
 	</div>
 	<br><br>
-	<button class="btn btn-secondary my-2 my-sm-0" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">회원 정보 수정</button>
+	<button class="btn btn-secondary my-2 my-sm-0" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">회원 정보 수정</button>
 	<button class="btn btn-secondary my-2 my-sm-0" id="memberDeleteBtn">회원 탈퇴</button>
 	
 </div>

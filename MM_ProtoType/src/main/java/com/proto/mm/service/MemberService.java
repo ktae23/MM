@@ -57,5 +57,13 @@ public class MemberService {
 	public void memberDelete(Member m) {
 		memberRepository.delete(m);
 	}
+
+	public Member findId(String phoneNumber) {
+		return memberRepository.findByPhone(phoneNumber);
+	}
+
+	public Member findPW(String id, String phoneNumber) {
+		return memberRepository.findByIdAndPhone(id, phoneNumber);
+	}
 	
 }

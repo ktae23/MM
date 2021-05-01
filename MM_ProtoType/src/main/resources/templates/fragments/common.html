@@ -83,9 +83,9 @@
 	                <li class="nav-item" th:classappend="${menu} == 'movieAll'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/movieAll}">영화 전체보기<span class="sr-only" th:if="${menu} == 'movieAll'">(current)</span></a>
 	                </li>
-	                <li class="nav-item" th:classappend="${menu} == 'member'? 'active'">
+	                <!-- <li class="nav-item" th:classappend="${menu} == 'member'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberList}">회원 목록 <span class="sr-only" th:if="${menu} == 'member'">(current)</span></a>
-	                </li>
+	                </li> -->
 	                <li class="nav-item" th:classappend="${menu} == 'memberInfo'? 'active'">
 	                    <a class="nav-link" href="#" th:href="@{/memberInfo}">회원 정보 <span class="sr-only" th:if="${menu} == 'memberInfo'">(current)</span></a>
 	                </li>

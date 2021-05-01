@@ -42,6 +42,16 @@ public class MemberController {
 		return "memberInsertForm";
 	}
 	
+	@GetMapping("findIdForm")
+	public String findIdForm() {
+		return "findIdForm";
+	}
+	
+	@GetMapping("findPwForm")
+	public String findPwForm() {
+		return "findPwForm";
+	}
+	
 	
 	@RequestMapping(value = "memberInsert", 
 			method= {RequestMethod.POST},
@@ -53,11 +63,12 @@ public class MemberController {
 		String id=request.getParameter("id");
 		String pw=request.getParameter("pw");
 		String name=request.getParameter("name");
+		String phone=request.getParameter("phoneNumber");
 		String temp = Arrays.toString(prefer);
 		String preference = temp.replaceAll("[\\s\\[\\]]", "");
 		BigDecimal mem_count = null;
 		try {
-			Member m=new Member(mem_count,id,pw,name,preference); 
+			Member m=new Member(mem_count,id,pw,name,preference,phone); 
 			Member result = memberService.idCheck(id);
 			if(result == null) {
 				memberService.memberInsert(m);
@@ -113,24 +124,24 @@ public class MemberController {
 		Member member = (Member)session.getAttribute("member");
 		Member result = memberService.idCheck(member.getId());
 		String pw=request.getParameter("pw");
-		if(pw.equals(member.getPw()))
-			result.setPw(pw);
-		else
+		
+		if(!pw.equals(member.getPw()))
 			return "비밀번호가 일치하지 않습니다.";
+		
 		String name=request.getParameter("name");
+		String changepw=request.getParameter("changepw");
+		String phone=request.getParameter("phoneNumber");
 		String temp = Arrays.toString(prefer);
 		String preference = temp.replaceAll("[\\s\\[\\]]", "");
 		
-		if(!name.isEmpty() && !preference.equals("null"))
-		{
+		if(!name.isEmpty())
 			result.setName(name);
+		if(!preference.equals("null"))
 			result.setPreference(preference);
-		}else if(!name.isEmpty())
-			result.setName(name);
-		else if(!preference.equals("null"))
-			result.setPreference(preference);
-		else
-			return "수정된 정보가 없습니다.";
+		if(!phone.isEmpty())
+			result.setPhone(phone);
+		if(!changepw.isEmpty())
+			result.setPw(changepw);
 		
 		System.out.println(result);
 		memberService.memberInsert(result);
@@ -153,5 +164,35 @@ public class MemberController {
 		session.invalidate();
 		
 		return member.getName()+"님 회원 탈퇴되셨습니다.";	
+	}
+	
+	@GetMapping("findID")
+	@ResponseBody
+	public String findId(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("ID 찾기 서비스 호출");
+		String phoneNumber = (String)request.getParameter("phoneNumber");
+		System.out.println(phoneNumber);
+		Member member = memberService.findId(phoneNumber);
+		if(member == null) {
+			return "회원 정보가 존재하지 않습니다.";
+		}else {
+			return "찾으시는 ID는" +member.getId()+" 입니다";
+		}
+	}
+	
+	@GetMapping("findPW")
+	@ResponseBody
+	public String findPw(Model model,HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("PW 찾기 서비스 호출");
+		String phoneNumber = (String)request.getParameter("phoneNumber");
+		String id = (String)request.getParameter("id");
+		Member member = memberService.findPW(id, phoneNumber);
+		if(member == null) {
+			return "회원 정보가 존재하지 않습니다.";
+		}else {
+			return "찾으시는 PW는" +member.getPw()+" 입니다";
+		}
 	}
 }

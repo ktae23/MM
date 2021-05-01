@@ -42,5 +42,7 @@ public class Member{
 	private String name;
 	@NonNull
 	private String preference;
+	@NonNull
+	private String phone;
 
 }
