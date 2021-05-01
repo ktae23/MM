@@ -57,10 +57,19 @@ public class PosterService {
 			posters.add(poster);
 		}
 		model.addAttribute("posters", posters);
-		
+		System.out.println(servletContext.getRealPath("/poster"));
+		String path = servletContext.getRealPath("/poster/MM/movie_imgs/194485.png/");
 		String absolutePath = System.getProperty("user.dir");;
 		System.out.println(absolutePath);
 		
+		Resource resource = new FileSystemResource(path);
+	    try {
+			path = resource.getFile().getAbsolutePath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    System.out.println("path ==>" + path);
 		
 		return model;
 	}
