@@ -60,6 +60,9 @@ public class PosterService {
 		System.out.println(servletContext.getRealPath("/poster"));
 		System.out.println(servletContext.getRealPath("poster"));
 		String path = servletContext.getRealPath("/poster/MM/movie_imgs/194485.png/");
+		String absolutePath = System.getProperty("user.dir");;
+		System.out.println(absolutePath);
+		
 		Resource resource = new FileSystemResource(path);
 	    try {
 			path = resource.getFile().getAbsolutePath();
