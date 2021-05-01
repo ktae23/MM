@@ -58,7 +58,7 @@ public class PosterService {
 		}
 		model.addAttribute("posters", posters);
 		System.out.println(servletContext.getRealPath("/poster"));
-		String path = servletContext.getRealPath("/poster/MM/movie_imgs/194485.png/");
+		String path = servletContext.getRealPath("/MM/movie_imgs/194485.png/");
 		String absolutePath = System.getProperty("user.dir");;
 		System.out.println(absolutePath);
 		
