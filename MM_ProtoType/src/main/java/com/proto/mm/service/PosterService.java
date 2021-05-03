@@ -60,23 +60,6 @@ public class PosterService {
 		}
 		model.addAttribute("posters", posters);
 		
-		Path relativePath = Paths.get("/poster");
-	      String path = relativePath.toAbsolutePath().toString();
-	      System.out.println("Working Directory = " + path);
-	      
-			Path relativePath2 = Paths.get("/poster/MM/movie_imgs/190584.png/");
-		      String path2 = relativePath.toAbsolutePath().toString();
-		      System.out.println("Working Directory = " + path2);
-			
-	      
-	    
-	      
-		System.out.println(servletContext.getRealPath("/poster"));
-		System.out.println(servletContext.getRealPath("/poster/MM/movie_imgs/190584.png/"));
-		
-		String absolutePath = System.getProperty("user.dir");;
-		System.out.println(absolutePath);
-		
 		
 		return model;
 	}
@@ -90,7 +73,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
 
-        String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
+        String imgUrl = "http://52.200.16.8:8090/" + poster.getPosterPath();
         
         String tmp = movie.getMovieTitle();
 		String fileName = tmp.replace(" ", "").replace(":", "_");
