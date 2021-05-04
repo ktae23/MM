@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,17 +59,7 @@ public class PosterService {
 			posters.add(poster);
 		}
 		model.addAttribute("posters", posters);
-		System.out.println(servletContext.getRealPath("/poster"));
-		System.out.println(servletContext.getRealPath("poster"));
-		String path = servletContext.getRealPath("/poster/MM/movie_imgs/194485.png/");
-		Resource resource = new FileSystemResource(path);
-	    try {
-			path = resource.getFile().getAbsolutePath();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    System.out.println("path ==>" + path);
+		
 		
 		return model;
 	}
@@ -81,7 +73,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
 
-        String imgUrl = "http://localhost:8090/poster/" + poster.getPosterPath();
+        String imgUrl = "http://52.200.16.8:8090/" + poster.getPosterPath();
         
         String tmp = movie.getMovieTitle();
 		String fileName = tmp.replace(" ", "").replace(":", "_");
