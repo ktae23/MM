@@ -50,7 +50,7 @@
 			                   </h4>
 
 			                <span th:if="${movie.movieCode == poster.movieCode}" th:each="poster : ${posters}">
-			                  	<img  id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="${poster.posterPath}"  width="25" height="25%"/>
+			                  	<img  id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 			                  	<div  class = "image_overlay image_overlay_blur">
 									<div class = "image_movieStory" th:text="${movie.movieStory}"></div>
 									<br><br><br>
@@ -82,7 +82,7 @@
 			                <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 			                </h4>
-			                <img id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="${poster.posterPath}"   width="25" height="25%"/>
+			                <img id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${filePath} + '/'"  width="25" height="25%"/>
 			               	
 			               	<p th:text="'별점 : ' + ${movie.movieRating}+'점'"></p>
 			                <p th:text="'장르 : ' + ${movie.movieGenre}"></p>
@@ -115,7 +115,7 @@
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
 					                  <span th:each="poster : ${posters}">
-					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="${poster.posterPath}"   width="25" height="25%"/>
+					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 					                </span>
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
 										 <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
