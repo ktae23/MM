@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/common :: head('영화 전체보기')">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('movieAll')">
+</nav>
+	<div id="movie_section" th:fragment="movie_section">
+    			<div align="center" id="movie_main_title" th:text="${member.name} + '님을 위한 전체 영화'"></div>
+    			<span class="movie-box">
+				<span th:each="movie : ${movies}">	
+               			
+			          <div class="col-lg-4 col-md-6 mb-4">
+			            <div align="center" class="card h-100">
+			            <div class="card-header text-white bg-secondary"><h4 th:text="${movie.movieTitle}" class="movieTitle"></h4></div>
+			              <div class="card-body">
+			               <!--  <h4 class="card-title">
+			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
+
+			                </h4> -->
+			                <p th:text="'장르 : ' + ${movie.movieGenre}"></p>
+			                <p th:text="'평점 : ' + ${movie.movieRating}+'점'"></p>
+
+			                   </h4>
+
+			                <span th:if="${movie.movieCode == poster.movieCode}" th:each="poster : ${posters}">
+			                  	<img  id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
+			                  	<div  class = "image_overlay image_overlay_blur">
+									<div class = "image_movieStory" th:text="${movie.movieStory}"></div>
+									<br><br><br>
+									<!-- <form method="get" action="movieDetail">
+						                <input type="hidden" name="movieTitle" th:value="${movie.movieTitle}">
+						            </form> -->
+						                <button class="movieDetailBtn" th:attrappend="id=${movieStat.index}" name="movieAllBtn">자세히 보기</button> 
+					                	<br>
+						           <div> <button class="cartInsertBtn" th:attrappend="id=${movieStat.index}" name="cartInsertBtn" >담기</button></div>
+						            	<br>
+								</div>
+			                </span>
+			                <br><br>
+			                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
+					                
+				                <br>
+			              </div>
+		            	</div>
+		            </div>
+		            
+				</span>
+				</span>
+			</div>
+	
+	    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+	    <script type="text/javascript" src="js/movieAllDetail.js"></script>
+</html>

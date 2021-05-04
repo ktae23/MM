@@ -104,7 +104,7 @@ public class OrdersService {
 		BigDecimal orderCount=null;
 		Timestamp orderDate = new Timestamp(System.currentTimeMillis());
 		Orders order = new Orders(orderCount, orderMethod, orderDate, memCount, movieCode, "0");
-		
+		model.addAttribute("order",order);
 		orderRepository.save(order);
 		Cart cart = cartRepository.findByMovieCodeAndMemCount(movieCode, memCount);
   	  	cartService.cartDelete(cart);

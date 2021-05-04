@@ -42,8 +42,25 @@
 </head>
 <body>
 
-<main class="container" th:replace="fragments/sign :: signUp">
-</main>
+ 			<div class="page-header">
+                <div class="col-md-6 col-md-offset-3">
+                <h3>ID 찾기</h3>
+                <h5>핸드폰 인증으로 ID를 찾을 수 있습니다.</h5>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-offset-3">
+                <form role="form" >
+				    <span class="phone-box">
+				    <div class="form-floating">
+				   	 	<label for="floatingPhone">Phone</label>	
+				      	<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />
+				      	<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송" >
+				    </div>
+				    </span>
+				    <br>
+				    <input type="button" id="findIDBtn" class="btn btn-success" value="ID 찾기" >
+                </form>
+            </div>
 
 </body>
 </html>

@@ -13,6 +13,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" charset="UTF-8"></script>
 
 <script type="text/javascript" src="js/sign.js" charset="UTF-8"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css"> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
  	
 </head>
 <body>
@@ -29,12 +33,13 @@
                     	<label for="floatingInput">성명</label>
 				      	<input type="text" class="form-control" id="floatingName" placeholder="이름을 입력해주세요" required/>
 				    </div>
-                    <!-- ID는 수정 불가
-                    <div class="form-floating">
-				    	<label for="floatingInput">ID</label>
-				      	<input type="email" class="form-control" id="floatingID" placeholder="name@example.com" required/>
+                    <span class="phone-box">
+				    <div class="form-floating">
+				   	 	<label for="floatingPhone">Phone</label>	
+				      	<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />
+				      	<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송" >
 				    </div>
-                    -->
+				    </span>
                     <br>
                     <div class="form-group">
                         <label for="InputEmail">영화 취향 선택</label><br>
@@ -57,9 +62,14 @@
 				    	<label><input type="checkbox" name="preference" value="뮤지컬">뮤지컬</label>
                     </div>
                  
-                    <div class="form-floating">
+                 	<div class="form-floating">
 				   	 	<label for="floatingPassword">Password</label>	
-				      	<input type="password" class="form-control" id="floatingPassword" placeholder="Password" required/>
+				      	<input type="password" class="form-control" id="changePassword" placeholder="변경할 Password를 입력하세요" required/>
+				    </div>
+				    
+                    <div class="form-floating">
+				   	 	<label for="floatingPassword">Password 확인</label>	
+				      	<input type="password" class="form-control" id="floatingPassword" placeholder="기존 Password를 입력하세요" required/>
 				    </div>
 				     <br>
                     <div class="form-group text-center">

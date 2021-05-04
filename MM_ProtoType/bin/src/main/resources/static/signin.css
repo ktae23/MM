@@ -39,10 +39,92 @@ body {
 
 #signInBtn{
 	background: #1e88E5;
+	cursor: pointer;
+	color: #1c5169;
+    background-color: #86dbff;
+    border: 2px solid transparent;
+    -webkit-transition: .5s all ease-in;
+    transition: .5s all ease-in;
+}
+
+#signInBtn:hover, #signInBtn:focus{
+    background-color: #d7f3ff;
+    -webkit-animation: breath 3s infinite;
+            animation: breath 3s infinite;
+    -webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;
+            box-shadow: 0px 0px 5px 0px #3cc6d8;
+}
+
+@-webkit-keyframes breath {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;box-shadow: 0px 0px 5px 0px #3cc6d8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #3cc6d8;box-shadow: 0px 0px 15px 10px #3cc6d8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #3cc6d8;box-shadow: 0px 0px 10px 0px #3cc6d8;}
+}
+ 
+@keyframes breath {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;box-shadow: 0px 0px 5px 0px #3cc6d8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #3cc6d8;box-shadow: 0px 0px 15px 10px #3cc6d8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #3cc6d8;box-shadow: 0px 0px 10px 0px #3cc6d8;}
+}
+
+#IDBtn, #PWBtn{
+	background: #1e88E5;
+	cursor: pointer;
+	color: #1c5169;
+    background-color: #86dbff;
+    border: 2px solid transparent;
+    -webkit-transition: .5s all ease-in;
+    transition: .5s all ease-in;
+}
+
+ #IDBtn:hover, #IDBtn:focus, #PWBtn:hover, #PWBtn:focus{
+    background-color: #d7f3ff;
+    -webkit-animation: breath 3s infinite;
+            animation: breath 3s infinite;
+    -webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;
+            box-shadow: 0px 0px 5px 0px #3cc6d8;
+}
+
+@-webkit-keyframes breath {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;box-shadow: 0px 0px 5px 0px #3cc6d8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #3cc6d8;box-shadow: 0px 0px 15px 10px #3cc6d8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #3cc6d8;box-shadow: 0px 0px 10px 0px #3cc6d8;}
+}
+ 
+@keyframes breath {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #3cc6d8;box-shadow: 0px 0px 5px 0px #3cc6d8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #3cc6d8;box-shadow: 0px 0px 15px 10px #3cc6d8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #3cc6d8;box-shadow: 0px 0px 10px 0px #3cc6d8;}
 }
 
 #signUpBtn{
 	background: #43A047;
+	cursor: pointer;
+    color: #2b8a2f;
+    background-color: #9dffa1;
+    border: 2px solid transparent;
+    -webkit-transition: .5s all ease-in;
+    transition: .5s all ease-in;
+}
+
+#signUpBtn:hover, #signUpBtn:focus{
+	background-color: #ceffd0;
+    -webkit-animation: breathing 3s infinite;
+            animation: breathing 3s infinite;
+    -webkit-box-shadow: 0px 0px 5px 0px #b5ffb8;
+            box-shadow: 0px 0px 5px 0px #b5ffb8;
+}
+
+@-webkit-keyframes breathing {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #b5ffb8;box-shadow: 0px 0px 5px 0px #b5ffb8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #b5ffb8;box-shadow: 0px 0px 15px 10px #b5ffb8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #b5ffb8;box-shadow: 0px 0px 10px 0px #b5ffb8;}
+}
+ 
+@keyframes breathing {
+    0% {-webkit-box-shadow: 0px 0px 5px 0px #b5ffb8;box-shadow: 0px 0px 5px 0px #b5ffb8;}
+    50% {-webkit-box-shadow: 0px 0px 15px 10px #b5ffb8;box-shadow: 0px 0px 15px 10px #b5ffb8;}
+    100% {-webkit-box-shadow: 0px 0px 10px 0px #b5ffb8;box-shadow: 0px 0px 10px 0px #b5ffb8;}
 }
 
 .mb-4 {
@@ -55,7 +137,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   /* background-color: #f5f5f5; */
-  background: #222222;
+  background: #111111;
 }
 
 .btn-primary-up{
