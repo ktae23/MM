@@ -86,7 +86,7 @@ $(document).ready(function(){
             		+'<p> 장르 : ' + movies[i].movieGenre + '</p>'
             		+'<p> 평점 : ' + movies[i].movieRating +'</p>'
             		+'<span>'
-                  	+'<img id="poster" alt="'+movies[i].movieTitle+ ' 포스터" src="/poster/'+ posters[i].posterPath + '/'+'"  width="25" height="25%"/>'
+                  	+'<img id="poster" alt="'+movies[i].movieTitle+ ' 포스터" src="'+ posters[i].posterPath + '/'+'"  width="25" height="25%"/>'
                   	+'<div class = "image_overlay image_overlay_blur">'
 					+'<div class = "image_movieStory" >'+movies[i].movieStory+'</div>'
 					+'<br><br><br>'
