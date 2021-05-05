@@ -66,8 +66,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        String saveDir = request.getSession().getServletContext().getRealPath("/poster");
-        File file = new File(saveDir + "/" + poster.getPosterPath());
+        File file = new File("http://52.200.16.8:8090/poster/" + poster.getPosterPath());
         
         FileInputStream fis = null;
         BufferedInputStream bis = null;
@@ -81,7 +80,8 @@ public class PosterService {
         	String reFilename = "";
         	boolean isMSIE = request.getHeader("user-agent").indexOf("MSIE") != -1 || 
         			request.getHeader("user-agent").indexOf("Trident") != -1;
-        	if(isMSIE) { reFilename = URLEncoder.encode(fileName, "utf-8");
+        	if(isMSIE) { 
+        	reFilename = URLEncoder.encode(fileName, "utf-8");
         	reFilename = reFilename.replaceAll("\\+", "%20"); 
         	}
         	else {
