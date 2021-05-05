@@ -57,7 +57,7 @@ public class PosterService {
 		return model;
 	}
 
-	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public Model posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         
         String movieTitle = request.getParameter("movieTitle");
         System.out.println(movieTitle);
@@ -66,69 +66,9 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        String saveDir = "/" + poster.getPosterPath();
-        String tmp = movie.getMovieTitle();
-  		String fileName = tmp.replace(" ", "").replace(":", "_");
-  		
-        File file = new File(saveDir);
-
-        FileInputStream fis = null;
-        ServletOutputStream sos = null;
-
-        try {
-            fis = new FileInputStream(file);
-            sos = response.getOutputStream();
-
-
-            String reFilename = "";
-            String browser = request.getHeader("User-Agent");
-            //파일 인코딩
-            if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){//브라우저 확인 파일명 encode  
-                
-            	reFilename = URLEncoder.encode(fileName,"UTF-8").replaceAll("\\+", "%20");
-                
-            }else{
-                
-            	reFilename = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
-                
-            }
-
-            response.setHeader("Content-Disposition", "attachment;filename=\""+reFilename+"\"");
-            response.setContentType("application/octer-stream");
-            response.setHeader("Content-Transfer-Encoding", "binary;");
-            
-            fis = new FileInputStream(file);
-            sos = response.getOutputStream();
-            
-            byte b [] = new byte[1024];
-            int data = 0;
-     
-            while((data=(fis.read(b, 0, b.length))) != -1){
-            	sos.write(b, 0, data);
-            }
-            
-            sos.flush();
-            
-        }catch(IOException e) {
-            e.printStackTrace();
-        }finally{
-            if(sos!=null){
-                try{
-                    sos.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-            if(fis!=null){
-                try{
-                    fis.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-        
-        
+        model.addAttribute("poster",poster);
+        model.addAttribute("movie", movie);
+        return model;
 
 //        String imgUrl = "/" + poster.getPosterPath();
 //        
