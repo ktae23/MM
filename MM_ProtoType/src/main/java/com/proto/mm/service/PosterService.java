@@ -1,5 +1,6 @@
 package com.proto.mm.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -82,8 +83,9 @@ public class PosterService {
         String tmp = movie.getMovieTitle();
 		String fileName = tmp.replace(" ", "").replace(":", "_");
 		
-		String home = System.getProperty("user.home");
+		String home = File.separator+"/Users/"+ System.getProperty("user.name");
 		String path = (home+"/Downloads/"); 
+		System.out.println(path);
 		SaveImg saveImg = new SaveImg();
 
 		try {
