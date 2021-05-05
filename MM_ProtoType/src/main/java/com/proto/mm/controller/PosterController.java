@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.proto.mm.service.PosterService;
 
@@ -16,7 +16,7 @@ public class PosterController {
 	@Autowired
 	PosterService posterService;
 	
-	@GetMapping("download")
+	@RequestMapping("download")
     public void downLoad(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		posterService.posterDownload(model, request, response);
