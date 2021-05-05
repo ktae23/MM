@@ -78,13 +78,13 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
 
-        String imgUrl = "52.200.16.8:8090/poster/" + poster.getPosterPath();
+        String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
         
         String tmp = movie.getMovieTitle();
 		String fileName = tmp.replace(" ", "").replace(":", "_");
 		
-		String home = File.separator+"/Users/"+ System.getProperty("user.name");
-		String path = (home+"/Downloads/"); 
+		String home = File.separator+"Users"+ File.separator + System.getProperty("user.name") + File.separator;
+		String path = (home+"Downloads" + File.separator); 
 		System.out.println(path);
 		SaveImg saveImg = new SaveImg();
 
