@@ -57,7 +57,7 @@ public class PosterService {
 		return model;
 	}
 
-	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public HttpServletResponse posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         
         String movieTitle = request.getParameter("movieTitle");
         System.out.println(movieTitle);
@@ -106,6 +106,7 @@ public class PosterService {
     			}catch (IOException e) {
     				e.printStackTrace(); }
 		}
+		return response;
 
         
 		/*
