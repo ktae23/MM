@@ -66,9 +66,10 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        String saveDir = "/poster/" + poster.getPosterPath();
+        String saveDir = "/" + poster.getPosterPath();
         String tmp = movie.getMovieTitle();
   		String fileName = tmp.replace(" ", "").replace(":", "_");
+  		
         File file = new File(saveDir);
 
         FileInputStream fis = null;
@@ -77,7 +78,6 @@ public class PosterService {
 
         try {
             fis = new FileInputStream(file);
-            bis = new BufferedInputStream(fis);
             sos = response.getOutputStream();
 
 
@@ -93,23 +93,34 @@ public class PosterService {
             }
 
             response.setContentType("application/octet-stream;charset=utf-8");
-            response.addHeader("Content-Disposition", "attachment;filename=\""+reFilename+"\"");
+            response.setHeader("Content-Disposition", "attachment;filename=\""+reFilename+"\"");
+            response.setHeader("Content-Transfer-Encoding", "binary;");
             response.setContentLength((int)file.length());
-
+            
+            byte b [] = new byte[1024];
             int read = 0;
-            while((read = bis.read()) != -1) {
-                sos.write(read);
+            while((read = fis.read(b, 0, b.length)) != -1) {
+                sos.write(b, 0, read);
             }
-
+            
+            sos.flush();
+            
         }catch(IOException e) {
             e.printStackTrace();
-        }finally {
-
-            try {
-                sos.close();
-                bis.close();
-            }catch (IOException e) {
-                e.printStackTrace();
+        }finally{
+            if(sos!=null){
+                try{
+                    sos.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+            if(fis!=null){
+                try{
+                    fis.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
         
