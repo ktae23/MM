@@ -78,7 +78,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
 
-        String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
+        String imgUrl = "52.200.16.8:8090/poster/" + poster.getPosterPath();
         
         String tmp = movie.getMovieTitle();
 		String fileName = tmp.replace(" ", "").replace(":", "_");
