@@ -1,19 +1,18 @@
 package com.proto.mm.service;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -21,6 +20,7 @@ import com.proto.mm.model.Movie;
 import com.proto.mm.model.Poster;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.PosterRepository;
+import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
@@ -57,40 +57,35 @@ public class PosterService {
 		return model;
 	}
 
-	public Model posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         
         String movieTitle = request.getParameter("movieTitle");
         System.out.println(movieTitle);
-        
         Movie movie = movieRepository.findByMovieTitle(movieTitle);
         BigDecimal movieCode = movie.getMovieCode();
-        
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
-        
-        model.addAttribute("poster",poster);
-        model.addAttribute("movie",movie);
-       
-		return model;
 
+        String imgUrl = "/" + poster.getPosterPath();
         
-		/*
-		 * String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
-		 * 
-		 * String tmp = movie.getMovieTitle(); String fileName = tmp.replace(" ",
-		 * "").replace(":", "_");
-		 * 
-		 * String home = File.separator+"Users"+ File.separator +
-		 * System.getProperty("user.name") + File.separator; String path =
-		 * (home+"Downloads" + File.separator); System.out.println(path); SaveImg
-		 * saveImg = new SaveImg();
-		 * 
-		 * try { int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1
-		 * 리턴, 오류 시 -1 리턴 if (result == 1) { System.out.println("저장된경로 : " +
-		 * saveImg.getPath()); System.out.println("저장된파일이름 : " +
-		 * saveImg.getSavedFileName()); } } catch (IOException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
-		 */
+        String tmp = movie.getMovieTitle();
+		String fileName = tmp.replace(" ", "").replace(":", "_");
+		
+		String home = File.separator+"Users"+ File.separator + System.getProperty("user.name") + File.separator;
+		String path = (home+"Downloads" + File.separator); 
+		System.out.println(path);
+		SaveImg saveImg = new SaveImg();
+
+		try {
+			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
+			if (result == 1) {
+				System.out.println("저장된경로 : " + saveImg.getPath());
+				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }
