@@ -66,7 +66,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        File file = new File("file:///" + poster.getPosterPath());
+        File file = new File("/" + poster.getPosterPath());
         
         FileInputStream fis = null;
         BufferedInputStream bis = null;
