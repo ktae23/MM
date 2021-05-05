@@ -73,7 +73,6 @@ public class PosterService {
         File file = new File(saveDir);
 
         FileInputStream fis = null;
-        BufferedInputStream bis = null;
         ServletOutputStream sos = null;
 
         try {
@@ -82,25 +81,30 @@ public class PosterService {
 
 
             String reFilename = "";
-            boolean isMSIE = request.getHeader("user-agent").indexOf("MSIE") != -1 || 
-            		request.getHeader("user-agent").indexOf("Trident") != -1;
-
-            if(isMSIE) {
-                reFilename = URLEncoder.encode(fileName, "utf-8");
-                reFilename = reFilename.replaceAll("\\+", "%20");
-            }else {
-                reFilename = new String(fileName.getBytes("utf-8"), "ISO-8859-1");
+            String browser = request.getHeader("User-Agent");
+            //파일 인코딩
+            if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){//브라우저 확인 파일명 encode  
+                
+            	reFilename = URLEncoder.encode(fileName,"UTF-8").replaceAll("\\+", "%20");
+                
+            }else{
+                
+            	reFilename = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
+                
             }
 
-            response.setContentType("application/octet-stream;charset=utf-8");
             response.setHeader("Content-Disposition", "attachment;filename=\""+reFilename+"\"");
+            response.setContentType("application/octer-stream");
             response.setHeader("Content-Transfer-Encoding", "binary;");
-            response.setContentLength((int)file.length());
+            
+            fis = new FileInputStream(file);
+            sos = response.getOutputStream();
             
             byte b [] = new byte[1024];
-            int read = 0;
-            while((read = fis.read(b, 0, b.length)) != -1) {
-                sos.write(b, 0, read);
+            int data = 0;
+     
+            while((data=(fis.read(b, 0, b.length))) != -1){
+            	sos.write(b, 0, data);
             }
             
             sos.flush();
