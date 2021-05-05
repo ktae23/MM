@@ -1,18 +1,19 @@
 package com.proto.mm.service;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -20,7 +21,6 @@ import com.proto.mm.model.Movie;
 import com.proto.mm.model.Poster;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.PosterRepository;
-import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
@@ -65,27 +65,66 @@ public class PosterService {
         BigDecimal movieCode = movie.getMovieCode();
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
-
-        String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
         
-        String tmp = movie.getMovieTitle();
-		String fileName = tmp.replace(" ", "").replace(":", "_");
-		
-		String home = File.separator+"Users"+ File.separator + System.getProperty("user.name") + File.separator;
-		String path = (home+"Downloads" + File.separator); 
-		System.out.println(path);
-		SaveImg saveImg = new SaveImg();
-
-		try {
-			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
-			if (result == 1) {
-				System.out.println("저장된경로 : " + saveImg.getPath());
-				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+        String saveDir = request.getSession().getServletContext().getRealPath("/poster");
+        File file = new File(saveDir + "/" + poster.getPosterPath());
+        
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        ServletOutputStream sos = null;
+        try {
+        	fis = new FileInputStream(file);
+        	bis = new BufferedInputStream(fis);
+        	sos = response.getOutputStream();
+        	String tmp =movieTitle;
+        	String fileName = tmp.replace(" ", "").replace(":", "_") + ".png";
+        	String reFilename = "";
+        	boolean isMSIE = request.getHeader("user-agent").indexOf("MSIE") != -1 || 
+        			request.getHeader("user-agent").indexOf("Trident") != -1;
+        	if(isMSIE) { reFilename = URLEncoder.encode(fileName, "utf-8");
+        	reFilename = reFilename.replaceAll("\\+", "%20"); 
+        	}
+        	else {
+        		reFilename = new String(fileName.getBytes("utf-8"), "ISO-8859-1");
+        	} 
+        	
+        	response.setContentType("application/octet-stream;charset=utf-8");
+        	response.addHeader("Content-Disposition", "attachment;filename=\""+reFilename+"\"");
+        	response.setContentLength((int)file.length());
+        	
+        	int read = 0;
+        	while((read = bis.read()) != -1) {
+        		sos.write(read); 
+        		} 
+        	
+    	}catch(IOException e) {
+    		e.printStackTrace(); 
+    	}finally {
+    		try {
+    			sos.close();
+    			bis.close();
+    			}catch (IOException e) {
+    				e.printStackTrace(); }
 		}
+
+        
+		/*
+		 * String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
+		 * 
+		 * String tmp = movie.getMovieTitle(); String fileName = tmp.replace(" ",
+		 * "").replace(":", "_");
+		 * 
+		 * String home = File.separator+"Users"+ File.separator +
+		 * System.getProperty("user.name") + File.separator; String path =
+		 * (home+"Downloads" + File.separator); System.out.println(path); SaveImg
+		 * saveImg = new SaveImg();
+		 * 
+		 * try { int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1
+		 * 리턴, 오류 시 -1 리턴 if (result == 1) { System.out.println("저장된경로 : " +
+		 * saveImg.getPath()); System.out.println("저장된파일이름 : " +
+		 * saveImg.getSavedFileName()); } } catch (IOException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 
 	}
 }
