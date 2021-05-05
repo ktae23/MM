@@ -69,7 +69,7 @@ public class PosterService {
         String saveDir = "/" + poster.getPosterPath();
         String tmp = movie.getMovieTitle();
   		String fileName = tmp.replace(" ", "").replace(":", "_");
-        File file = new File(saveDir + "/" + fileName);
+        File file = new File(saveDir);
 
         FileInputStream fis = null;
         BufferedInputStream bis = null;
