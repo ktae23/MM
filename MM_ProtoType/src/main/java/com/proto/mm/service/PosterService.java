@@ -1,6 +1,5 @@
 package com.proto.mm.service;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import com.proto.mm.model.Movie;
 import com.proto.mm.model.Poster;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.PosterRepository;
+import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
@@ -57,7 +57,7 @@ public class PosterService {
 		return model;
 	}
 
-	public Model posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         
         String movieTitle = request.getParameter("movieTitle");
         System.out.println(movieTitle);
@@ -66,30 +66,24 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        model.addAttribute("poster",poster);
-        model.addAttribute("movie", movie);
-        return model;
+        String imgUrl = "/" + poster.getPosterPath();
+        System.out.println(imgUrl);
+        String tmp = movie.getMovieTitle();
+  		String fileName = tmp.replace(" ", "").replace(":", "_");
+        
+		SaveImg saveImg = new SaveImg();
+		String path = "C:/Program Files/MovieMentor";
 
-//        String imgUrl = "/" + poster.getPosterPath();
-//        
-//        String tmp = movie.getMovieTitle();
-//		String fileName = tmp.replace(" ", "").replace(":", "_");
-//		
-//		String home = File.separator+"Users"+ File.separator + System.getProperty("user.name") + File.separator;
-//		String path = (home+"Downloads" + File.separator); 
-//		System.out.println(path);
-//		SaveImg saveImg = new SaveImg();
-//
-//		try {
-//			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
-//			if (result == 1) {
-//				System.out.println("저장된경로 : " + saveImg.getPath());
-//				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
-//			}
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
+			if (result == 1) {
+				System.out.println("저장된경로 : " + saveImg.getPath());
+				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }
