@@ -66,7 +66,7 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        String saveDir = "/" + poster.getPosterPath();
+        String saveDir = "/poster/" + poster.getPosterPath();
         String tmp = movie.getMovieTitle();
   		String fileName = tmp.replace(" ", "").replace(":", "_");
         File file = new File(saveDir);
