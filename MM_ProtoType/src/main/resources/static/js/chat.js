@@ -22,7 +22,7 @@ $(document).ready(
 				var control = "";
 				var date = formatAMPM(new Date());
 
-				if (who == "me") {
+				if (who != "me") {
 
 					control = '<li style="width:70%">'
 							+ '<div class="msj macro" style="margin-left:135px! important; margin-bottom:10px; important! margin-top:10px! important">'
@@ -113,28 +113,6 @@ $(document).ready(
 						}
 					});
 				}
-			});
-			
-			$("#btn-chat").click(function(){
-				var text = $(".mytext").val();
-				if (text !== "") {
-					insertChat("me", text);
-					$(".mytext").val('');
-				}
-
-				$.get("chat", {
-					chat : text
-				}, function(data) {
-					var obj=JSON.parse(data);
-					var text = obj.chatMsg;
-					var movies = obj.movies;
-					var posters = obj.posters;
-					
-					if (text !== "") {
-						insertChat("mm", text, 15);
-						insertMovie(movies, posters, 15);
-					}
-				});
 			});
 
 			resetChat();

@@ -89,7 +89,7 @@ $(document).ready(function(){
 					swal.fire(data);
 					location.href = "cart";
 				}else{
-					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=800,height=450');
+					window.open(data,'_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=500');
 				}
 			});
 		
@@ -218,12 +218,12 @@ $(document).ready(function(){
 									  showConfirmButton: false,
 									  timer: 6000
 									})
-								location.reload();	
+								location.href="download?movieTitle="+movieTitle;
+								setTimeout(function(){
+								       location.reload();
+								   }, 1000);
 							});
-						$.post("download",
-							{			   
-								movieTitle:movieTitle
-							});
+						
 			  }
 			})
 		
