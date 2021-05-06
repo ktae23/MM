@@ -62,7 +62,6 @@ public class PosterService {
       BigDecimal movieCode = movie.getMovieCode();
       Poster poster = posterRepository.findByMovieCode(movieCode);  
       String dFile = movieCode + ".png";
-      model.addAttribute("movie", movie);
       model.addAttribute("poster", poster);
       model.addAttribute("dFile", dFile);
  
