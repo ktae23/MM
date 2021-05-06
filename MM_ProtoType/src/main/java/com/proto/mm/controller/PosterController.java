@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.proto.mm.model.Movie;
+
 import com.proto.mm.model.Poster;
 import com.proto.mm.service.PosterService;
 
@@ -33,11 +36,14 @@ public class PosterController {
 		
 		  posterService.posterDownload(model, request, response);
 		  Poster poster = (Poster) model.getAttribute("poster");
+		  Movie movie = (Movie) model.getAttribute("movie");
+
 		  
 		  String dFile = (String) model.getAttribute("dFile");
 		  System.out.println("파일 이름 : " + dFile);
 		  
-		  String upDir = "C:"+ File.separator + "Users" +File.separator+"zz238"+File.separator+"MM"+File.separator+"movie_imgs";
+
+		  String upDir = "/"+ File.separator + "MM"+File.separator+"movie_imgs";
 		  String path = upDir+File.separator+dFile;
 		  
 		  File file = new File(path);
@@ -45,11 +51,13 @@ public class PosterController {
 		  String userAgent = request.getHeader("User-Agent");
 		  boolean ie = userAgent.indexOf("MSIE") > -1 || userAgent.indexOf("rv:11") > -1;
 		  String fileName = null;
+
+		  String tmp = movie.getMovieTitle().replace(" ", "").replace(":","_") + ".png";
 		  
 		  if (ie) {
-		   fileName = URLEncoder.encode(file.getName(), "utf-8");
+		   fileName = URLEncoder.encode(tmp, "utf-8");
 		  } else {
-		   fileName = new String(file.getName().getBytes("utf-8"),"iso-8859-1");
+		   fileName = new String(tmp.getBytes("utf-8"),"iso-8859-1");
 		  }
 		  
 		  response.setContentType("application/octet-stream");
