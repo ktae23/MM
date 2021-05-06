@@ -218,12 +218,12 @@ $(document).ready(function(){
 									  showConfirmButton: false,
 									  timer: 6000
 									})
-								location.reload();	
+								location.href="download?movieTitle="+movieTitle;
+								setTimeout(function(){
+								       location.reload();
+								   }, 1000);
 							});
-						$.get("download",
-							{			   
-								movieTitle:movieTitle
-							});
+						
 			  }
 			})
 		

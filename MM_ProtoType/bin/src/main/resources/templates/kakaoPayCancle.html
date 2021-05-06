@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+ 
+카카오페이 결제가 취소되었습니다.
+<br>
+<input type="button" id="kakaoCancleBtn" value="닫기" onClick="kakaoCancleBtn_close();"> 
+
+</body>
+<script>
+function kakaoCancleBtn_close(){
+	opener.parent.location.href = "cart";
+	window.close();	
+}
+</script>
+</html>

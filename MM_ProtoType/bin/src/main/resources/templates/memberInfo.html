@@ -7,13 +7,14 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('memberInfo')">
 </nav>
-<div class="container">
+<div class="container" id="memberInfo">
 	<h2>회원 정보</h2>
 	<table class="table table-striped">
 	<thead>
 			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">NAME</th>
+				<th scope="col">PHONE</th>
 				<th scope="col">PREFERENCES</th>
 			</tr>
 	</thead>
@@ -21,6 +22,7 @@
 			<tr>
 				<td><span th:text="${member.id}"></span></td>
 				<td><span th:text="${member.name}"></span></td>
+				<td><span th:text="${member.phone}"></span></td>
 				<td><span th:text="${member.preference}"></span></td>
 			</tr>
 		
@@ -29,7 +31,6 @@
 	 
 	<br><br>
 	<h2>구매 이력</h2>
-<<<<<<< HEAD
 	<div th:if="${movies != null}">
 		<div>총 구매 건수 : <span th:text="${#lists.size(movies)}"></span></div>
 		<table class="table table-striped">
@@ -67,34 +68,8 @@
 		<div>총 구매 건수 : 0</div>
 	</div>
 	<br><br>
-	<button class="btn btn-secondary my-2 my-sm-0" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">회원 정보 수정</button>
+	<button class="btn btn-secondary my-2 my-sm-0" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">회원 정보 수정</button>
 	<button class="btn btn-secondary my-2 my-sm-0" id="memberDeleteBtn">회원 탈퇴</button>
-=======
-	<table class="table table-striped">
-	<thead>
-			<tr>
-				<th scope="col">MOVIE_CODE</th>
-				<th scope="col">MOVIE_TITLE</th>
-				<th scope="col">MOVIE_PRICE</th>
-			</tr>
-	</thead>
-	
-	<!-- 구매 이력 출력-->	
-	<thead>
-	
-			<tr th:each="order : ${orders}">
-				<td><span th:text="${order.movie_code}"></span></td>
-				<td><span th:text="${order.movie_title}"></span></td>
-				<td><span th:text="${order.price}"></span></td>
-			</tr>
-	
-	</thead>
-	</table>
-	
-	<br><br>
-	<button class="btn btn-secondary my-2 my-sm-0" id="UpdateBtn" onclick="window.open('memberUpdate', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">회원 정보 수정</button>
-	<button class="btn btn-secondary my-2 my-sm-0" id="DeleteBtn" >회원 탈퇴</button>
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	
 </div>
 	    <script type="text/javascript" src="js/jquery.cookie.js"></script>

@@ -3,10 +3,7 @@
 
 <body>
 	<main class="form-signin" th:fragment="nonLogin">
-<<<<<<< HEAD
 	  <div class="signin-container">
-=======
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	  <form>
 	    <div class="form-floating">
 	      <input type="email" class="form-control" id="floatingID" placeholder="name@example.com">
@@ -20,16 +17,17 @@
 		
 	    <button class="w-75 btn btn-lg btn-primary" id="signInBtn">Sign in</button>
 	    <br>
-	    <button class="w-50 btn btn-lg btn-primary-up" id="signUpBtn" onclick="window.open('memberInsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">Sign up</button>
+	    <button class="w-50 btn btn-lg btn-primary-up" id="signUpBtn" onclick="window.open('memberInsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">Sign up</button>
+	    <br>
+	    <br>
+	    <button class="w-30 btn btn-lg btn-primary" id="IDBtn" onclick="window.open('findIdForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">Find ID</button>
+	    <button class="w-30 btn btn-lg btn-primary" id="PWBtn" onclick="window.open('findPwForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=500');">Find PW</button>
 	  </form> 
 	
 	  <footer>
 	    <p class="mt-5 mb-3 text-muted">&copy; Movie Mentor 2021</p>
 	  </footer>
-<<<<<<< HEAD
 	  </div>
-=======
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 	</main>
 	
 	<main class="form-signin" th:fragment="Logined">
@@ -59,6 +57,13 @@
 				    	<label for="floatingInput">ID</label>
 				      	<input type="email" class="form-control" id="floatingID" placeholder="name@example.com" required/>
 				    </div>
+				    <span class="phone-box">
+				    <div class="form-floating">
+				   	 	<label for="floatingPhone">Phone</label>	
+				      	<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />
+				      	<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송" >
+				    </div>
+				    </span>
 				
 				    <div class="form-floating">
 				   	 	<label for="floatingPassword">Password</label>	
@@ -68,11 +73,7 @@
 				    
 				    <div class="form-floating">
 				    	<label for="floatingInput">영화 취향 선택(필수)</label>
-<<<<<<< HEAD
 				    	<br>
-=======
-				    	<br/ >
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
 				    	<label><input type="checkbox" name="preference" value="미스터리">미스터리</label>
 				    	<label><input type="checkbox" name="preference" value="스릴러">스릴러</label>
 				    	<label><input type="checkbox" name="preference" value="다큐멘터리">다큐멘터리</label>
@@ -94,12 +95,7 @@
 				    
                     <div class="form-group text-center">
                         <input type="button" id="memberInsertBtn" class="btn btn-primary" value="회원가입" >
-<<<<<<< HEAD
                         <input type="button" class="btn btn-warning" value="취소" onClick="window.close()">
-=======
-                        <button type="submit" class="btn btn-warning"> 
-                        취소<i class="fa fa-times spaceLeft"></i>
->>>>>>> 6d60f666779c42176499abdff4917f8c7f6865f6
                         </button>
                     </div>
                 </form>
