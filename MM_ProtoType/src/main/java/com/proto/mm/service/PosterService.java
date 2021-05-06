@@ -64,7 +64,8 @@ public class PosterService {
       String dFile = movieCode + ".png";
       model.addAttribute("poster", poster);
       model.addAttribute("dFile", dFile);
- 
+      model.addAttribute("movie", movie);
+      
       return model;
 	}
 }
