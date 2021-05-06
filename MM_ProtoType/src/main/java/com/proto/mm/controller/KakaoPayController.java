@@ -60,11 +60,11 @@ public class KakaoPayController {
 	    
 	    @GetMapping("/kakaoPayCancel")
 	    public String kakaoPayCancel(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "kakaoPayCancle";
+	        return "kakaoPayCancel";
 	    }
 	    
 	    @GetMapping("/kakaoPaySuccessFail")
 	    public String kakaoPaySuccessFail(Model model, HttpServletRequest request, HttpServletResponse response) {
-	        return "kakaoPayCancle";
+	        return "kakaoPayCancel";
 	    }
 	}

@@ -435,9 +435,7 @@ $(document).ready(function() {
 				  timer: 1500
 			})
 		}else{
-<<<<<<< HEAD
-		var control ='<label for="floatingPhone">Phone</label>'	
-=======
+
 			if(!phoneTest){
 				Swal.fire({
 					  title: '핸드폰 번호가 형식에 맞지 않습니다.',
@@ -448,7 +446,6 @@ $(document).ready(function() {
 			}else{
 		var control ='<label for="floatingPhone">Phone</label>'
 					+'<div id="phone-box">'
->>>>>>> c6c34a02db72b8605bfc6f3f75f9033e08444875
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" value='+phoneNumber+' required>'
 					+'&nbsp;'+'&nbsp;'
 					+'<input type="button" id="sendPhoneNumberRetry" class="btn btn-outline-light" value="인증번호 재발송" ><br>'
@@ -517,10 +514,10 @@ $(document).ready(function() {
 							text : '인증번호가 올바르지 않습니다!'
 						})
 					}
+					})
+					}
 				})
-
 			}
-		})
 		}
 	});
 });
@@ -696,9 +693,6 @@ $(document).ready(function() {
 			  				confirmButtonText: '확인',
 						}).then((result) => {
 							if (result.isConfirmed) {
-<<<<<<< HEAD
-								window.close();
-=======
 								control = '<div class="form-floating">'
 						   	 			+'<br>'
 										+'<label for="floatingPassword">Password</label>'
@@ -748,7 +742,6 @@ $(document).ready(function() {
 										}
 								})
 							})
->>>>>>> c6c34a02db72b8605bfc6f3f75f9033e08444875
 							}
 						})
 					}
