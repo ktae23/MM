@@ -20,7 +20,6 @@ import com.proto.mm.model.Movie;
 import com.proto.mm.model.Poster;
 import com.proto.mm.repository.MovieRepository;
 import com.proto.mm.repository.PosterRepository;
-import com.proto.mm.util.SaveImg;
 
 @Service
 public class PosterService {
@@ -66,24 +65,64 @@ public class PosterService {
         System.out.println(movieCode);
         Poster poster =	posterRepository.findByMovieCode(movieCode);
         
-        String imgUrl = "http://52.200.16.8:8090/poster/" + poster.getPosterPath();
-        System.out.println(imgUrl);
-        String tmp = movie.getMovieTitle();
-  		String fileName = tmp.replace(" ", "").replace(":", "_");
         
-		SaveImg saveImg = new SaveImg();
-		String path = "C:/Program Files/MovieMentor";
-
-		try {
-			int result = saveImg.saveImgFromUrl(imgUrl, path, fileName); // 성공 시 1 리턴, 오류 시 -1 리턴
-			if (result == 1) {
-				System.out.println("저장된경로 : " + saveImg.getPath());
-				System.out.println("저장된파일이름 : " + saveImg.getSavedFileName());
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+        String path = "/" + poster.getPosterPath();
+        System.out.println(path);
+        String fileName =movieTitle.replace(" ", "").replace(":", "_") + ".png";
+        File file = new File(path);
+        System.out.println(fileName);
+        FileInputStream fileInputStream = null;
+        ServletOutputStream servletOutputStream = null;
+     
+        try{
+            String downName = null;
+            String browser = request.getHeader("User-Agent");
+            //파일 인코딩
+            if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){//브라우저 확인 파일명 encode  
+                
+                downName = URLEncoder.encode(fileName,"UTF-8").replaceAll("\\+", "%20");
+                
+            }else{
+                
+                downName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
+                
+            }
+            
+            response.setHeader("Content-Disposition","attachment;filename=\"" + downName+"\"");             
+            response.setContentType("application/octer-stream");
+            response.setHeader("Content-Transfer-Encoding", "binary;");
+     
+            fileInputStream = new FileInputStream(file);
+            servletOutputStream = response.getOutputStream();
+     
+            byte b [] = new byte[1024];
+            int data = 0;
+     
+            while((data=(fileInputStream.read(b, 0, b.length))) != -1){
+                
+                servletOutputStream.write(b, 0, data);
+                
+            }
+     
+            servletOutputStream.flush();//출력
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            if(servletOutputStream!=null){
+                try{
+                    servletOutputStream.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+            if(fileInputStream!=null){
+                try{
+                    fileInputStream.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
