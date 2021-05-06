@@ -220,7 +220,7 @@ $(document).ready(function(){
 									})
 								location.reload();	
 							});
-						$.get("download",
+						$.post("download",
 							{			   
 								movieTitle:movieTitle
 							});
