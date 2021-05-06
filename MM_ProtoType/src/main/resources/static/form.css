@@ -1,0 +1,27 @@
+#phone-box{
+	display: flex! important;	
+}
+
+.btn-outline-light{
+	cursor: pointer;
+    color: #f0f0f0;
+    background: #870000;
+    /* border-radius: 0px! important; */
+    border: 2px solid transparent;
+}
+
+.btn-dark{
+	cursor: pointer;
+    color: #fff! important;
+    background: #222222;
+    /* border-radius: 0px! important; */
+    border: 2px solid transparent;
+}
+
+.btn-outline-warning{
+	cursor: pointer;
+    color: #000! important;
+    background: #FFD700;
+    /* border-radius: 0px! important; */
+    border: 2px solid transparent;
+}

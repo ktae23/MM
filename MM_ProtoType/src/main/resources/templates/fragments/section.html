@@ -17,6 +17,7 @@
 					                    <div class="text text-r" style="background:whitesmoke !important">
 					                        <input class="mytext" placeholder="Type a message"/>
 					                    </div> 
+					                    &nbsp;&nbsp;&nbsp;<button class="btn btn-primary-dark btn-lg" id="btn-chat"><i class="fa fa-send fa-1x" aria-hidden="true"></i></button>
 					                </div>
 					            </div>
 				       	 </div>    
@@ -32,7 +33,7 @@
 			</div>
 			
 			<div id="movie_section" th:fragment="movie_section">
-    			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 취향저격 영화'"> User님의 취향저격 영화</div>
+    			<div align="center" id="movie_main_title" th:text="${member.name} + '님의 맞춤 영화'"> User님의 취향저격 영화</div>
     			<span class="movie-box">
 				<span th:each="movie : ${movies}">	
                			
@@ -118,7 +119,8 @@
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
 					                </span>
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
-										 <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
+					              
+										 <button class="btn btn-warning" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
 										<br><br>
 						                <button class="btn btn-secondary my-2 my-sm-0" th:attrappend="id=${movieStat.index}" name="cartDeleteBtn">삭제</button>
 					                		<br><br>
