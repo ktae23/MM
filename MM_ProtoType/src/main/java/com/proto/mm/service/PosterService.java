@@ -57,13 +57,14 @@ public class PosterService {
 
 	public ModelMap posterDownload(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         
-      String movieTitle = request.getParameter("movieTitle");
-      Movie movie = movieRepository.findByMovieTitle(movieTitle);
-      BigDecimal movieCode = movie.getMovieCode();
-      Poster poster = posterRepository.findByMovieCode(movieCode);  
-      String dFile = movieCode + ".png";
-      model.addAttribute("poster", poster);
-      model.addAttribute("dFile", dFile);
+	      String movieTitle = request.getParameter("movieTitle");
+	      Movie movie = movieRepository.findByMovieTitle(movieTitle);
+	      BigDecimal movieCode = movie.getMovieCode();
+	      Poster poster = posterRepository.findByMovieCode(movieCode);  
+	      String dFile = movieCode + ".png";
+	      model.addAttribute("poster", poster);
+	      model.addAttribute("dFile", dFile);
+	      model.addAttribute("movie", movie);
  
       return model;
 	}
