@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -56,73 +63,103 @@ public class PosterService {
 		return model;
 	}
 
-	public void posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
-        String movieTitle = request.getParameter("movieTitle");
-        System.out.println(movieTitle);
-        Movie movie = movieRepository.findByMovieTitle(movieTitle);
-        BigDecimal movieCode = movie.getMovieCode();
-        System.out.println(movieCode);
-        Poster poster =	posterRepository.findByMovieCode(movieCode);
-        
-        
-        String path = "/" + poster.getPosterPath();
-        System.out.println(path);
-        String fileName =movieTitle.replace(" ", "").replace(":", "_") + ".png";
-        File file = new File(path);
-        System.out.println(fileName);
-        FileInputStream fileInputStream = null;
-        ServletOutputStream servletOutputStream = null;
-     
-        try{
-            String downName = null;
-            String browser = request.getHeader("User-Agent");
-            //파일 인코딩
-            if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){//브라우저 확인 파일명 encode  
-                
-                downName = URLEncoder.encode(fileName,"UTF-8").replaceAll("\\+", "%20");
-                
-            }else{
-                
-                downName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
-                
-            }
-            
-            response.setHeader("Content-Disposition","attachment;filename=\"" + downName+"\"");             
-            response.setContentType("application/octer-stream");
-            response.setHeader("Content-Transfer-Encoding", "binary;");
-     
-            fileInputStream = new FileInputStream(file);
-            servletOutputStream = response.getOutputStream();
-     
-            byte b [] = new byte[1024];
-            int data = 0;
-     
-            while((data=(fileInputStream.read(b, 0, b.length))) != -1){
-                
-                servletOutputStream.write(b, 0, data);
-                
-            }
-     
-            servletOutputStream.flush();//출력
-            
-        }catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            if(servletOutputStream!=null){
-                try{
-                    servletOutputStream.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-            if(fileInputStream!=null){
-                try{
-                    fileInputStream.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+	public ResponseEntity<ByteArrayResource> posterDownload(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		String movieTitle = request.getParameter("movieTitle");
+		System.out.println(movieTitle);
+		Movie movie = movieRepository.findByMovieTitle(movieTitle);
+		BigDecimal movieCode = movie.getMovieCode();
+		System.out.println(movieCode);
+		Poster poster =	posterRepository.findByMovieCode(movieCode);
+		
+	    String fileName =movieTitle.replace(" ", "").replace(":", "_") + ".png";	           
+			
+	    File file = new File(File.separator + poster.getPosterPath());
+	    HttpHeaders header = new HttpHeaders();
+	    header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+fileName);
+	    header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+	    header.add("Pragma", "no-cache");
+	    header.add("Expires", "0");
+	    Path path = Paths.get(file.getAbsolutePath());
+	    ByteArrayResource resource = null;
+	    
+	    try {
+	        resource = new ByteArrayResource(Files.readAllBytes(path));
+	    } catch(IOException e) {
+	        e.printStackTrace();
+	    }
+	    return ResponseEntity.ok()
+	        .headers(header)
+	        .contentLength(file.length())
+	        .contentType(MediaType.parseMediaType("application/octet-stream"))
+	        .body(resource);
+	}
+		
+		
+//        String movieTitle = request.getParameter("movieTitle");
+//        System.out.println(movieTitle);
+//        Movie movie = movieRepository.findByMovieTitle(movieTitle);
+//        BigDecimal movieCode = movie.getMovieCode();
+//        System.out.println(movieCode);
+//        Poster poster =	posterRepository.findByMovieCode(movieCode);
+//        
+//        
+//        String path = "/" + poster.getPosterPath();
+//        System.out.println(path);
+//        String fileName =movieTitle.replace(" ", "").replace(":", "_") + ".png";
+//        File file = new File(path);
+//        System.out.println(fileName);
+//        FileInputStream fileInputStream = null;
+//        ServletOutputStream servletOutputStream = null;
+//     
+//        try{
+//            String downName = null;
+//            String browser = request.getHeader("User-Agent");
+//            //파일 인코딩
+//            if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){//브라우저 확인 파일명 encode  
+//                
+//                downName = URLEncoder.encode(fileName,"UTF-8").replaceAll("\\+", "%20");
+//                
+//            }else{
+//                
+//                downName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
+//                
+//            }
+//            
+//            response.setHeader("Content-Disposition","attachment;filename=\"" + downName+"\"");             
+//            response.setContentType("application/octer-stream");
+//            response.setHeader("Content-Transfer-Encoding", "binary;");
+//     
+//            fileInputStream = new FileInputStream(file);
+//            servletOutputStream = response.getOutputStream();
+//     
+//            byte b [] = new byte[1024];
+//            int data = 0;
+//     
+//            while((data=(fileInputStream.read(b, 0, b.length))) != -1){
+//                
+//                servletOutputStream.write(b, 0, data);
+//                
+//            }
+//     
+//            servletOutputStream.flush();//출력
+//            
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }finally{
+//            if(servletOutputStream!=null){
+//                try{
+//                    servletOutputStream.close();
+//                }catch (IOException e){
+//                    e.printStackTrace();
+//                }
+//            }
+//            if(fileInputStream!=null){
+//                try{
+//                    fileInputStream.close();
+//                }catch (IOException e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
 }

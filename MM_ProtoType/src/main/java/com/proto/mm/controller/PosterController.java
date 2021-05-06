@@ -1,5 +1,6 @@
 package com.proto.mm.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,10 +19,14 @@ public class PosterController {
 	
 	@RequestMapping("download")
     public void downLoad(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		
 		posterService.posterDownload(model, request, response);
 
     }
+
+		
+
 }
 
 
