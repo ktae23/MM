@@ -435,12 +435,28 @@ $(document).ready(function() {
 				  timer: 1500
 			})
 		}else{
-		var control ='<label for="floatingPhone">Phone</label>'	
+
+			if(!phoneTest){
+				Swal.fire({
+					  title: '핸드폰 번호가 형식에 맞지 않습니다.',
+					  icon: 'warning',
+					  showConfirmButton: false,
+					  timer: 1500
+				})
+			}else{
+		var control ='<label for="floatingPhone">Phone</label>'
+					+'<div id="phone-box">'
+
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" value='+phoneNumber+' required>'
-					+'<input type="button" id="sendPhoneNumberRetry" class="btn btn-primary" value="인증번호 재발송" ><br>'
+					+'&nbsp;'+'&nbsp;'
+					+'<input type="button" id="sendPhoneNumberRetry" class="btn btn-outline-light" value="인증번호 재발송" ><br>'
+					+'</div>'
 					+'<label for="floatingInput">인증번호입력</label>'
+					+'<div id="phone-box">'
 					+'<input type="text" class="form-control" id="inputCertifiedNumber" placeholder="인증번호 입력" required>'
-					+'<input type="button" id="checkBtn" class="btn btn-primary" value="확인" >';
+					+'&nbsp;'+'&nbsp;'
+					+'<input type="button" id="checkBtn" class="btn btn-dark" value="확인" >'
+					+'</div>';
 		$('.phone-box').html(control);
 		
 		
@@ -458,9 +474,12 @@ $(document).ready(function() {
 						icon : 'error',
 						title : res
 					})
-					control ='<label for="floatingPhone">Phone</label>'	
+					control ='<label for="floatingPhone">Phone</label>'
+						+'<div id="phone-box">'
 						+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-						+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+						+'&nbsp;'+'&nbsp;'
+						+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+						+'</div>';
 					$('.phone-box').html(control);
 					
 				}else if(res == "인증번호 발송에 실패했습니다."){
@@ -468,9 +487,11 @@ $(document).ready(function() {
 						icon : 'error',
 						title : res
 					})
-					control ='<label for="floatingPhone">Phone</label>'	
+					control ='<label for="floatingPhone">Phone</label>'
+						+'<div id="phone-box">'
 						+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-						+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+						+'&nbsp;&nbsp;<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+						+'</div>';
 					$('.phone-box').html(control);
 				}
 				else{
@@ -480,9 +501,12 @@ $(document).ready(function() {
 					if ($.trim(res) == $('#inputCertifiedNumber').val()) {
 						Swal.fire('인증성공!', '휴대폰 인증이 정상적으로 완료되었습니다.', 'success')
 
-						control ='<label for="floatingPhone">Phone</label>'	
+						control ='<label for="floatingPhone">Phone</label>'
+								+'<div id="phone-box">'
 								+'<input type="tel" class="form-control" id="inputPhoneNumber" value='+phoneNumber+' required disabled="disabled"/>'
-								+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증완료" disabled="disabled">';
+								+'&nbsp;'+'&nbsp;'
+								+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증완료" disabled="disabled">'
+								+'</div>';
 						$('.phone-box').html(control);
 					} else {
 						Swal.fire({
@@ -533,9 +557,12 @@ $(document).on("click",'#sendPhoneNumberRetry',function() {
 					icon : 'error',
 					title : res 
 				})
-				control ='<label for="floatingPhone">Phone</label>'	
+				control ='<label for="floatingPhone">Phone</label>'
+					+'<div id="phone-box">'
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-					+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+					+'&nbsp;'+'&nbsp;'
+					+'<input type="button" id="sendPhoneNumber" class=btn btn-outline-light" value="인증번호 발송">'
+					+'</div>';
 				$('.phone-box').html(control);
 				
 			}else if(res == "인증번호 발송에 실패했습니다."){
@@ -543,9 +570,12 @@ $(document).on("click",'#sendPhoneNumberRetry',function() {
 					icon : 'error',
 					title : res
 				})
-				control ='<label for="floatingPhone">Phone</label>'	
+				control ='<label for="floatingPhone">Phone</label>'
+					+'<div id="phone-box">'
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-					+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+					+'&nbsp;'+'&nbsp;'
+					+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+					+'</div>';
 				$('.phone-box').html(control);
 			}else{
 				Swal.fire('인증번호 재발송 완료!')
@@ -554,9 +584,12 @@ $(document).on("click",'#sendPhoneNumberRetry',function() {
 				if ($.trim(res) == $('#inputCertifiedNumber').val()) {
 					Swal.fire('인증성공!', '휴대폰 인증이 정상적으로 완료되었습니다.', 'success')
 
-					control ='<label for="floatingPhone">Phone</label>'	
+					control ='<label for="floatingPhone">Phone</label>'
+							+'<div id="phone-box">'
 							+'<input type="tel" class="form-control" id="inputPhoneNumber" value='+phoneNumber+' required disabled="disabled"/>'
-							+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증완료" disabled="disabled">';
+							+'&nbsp;'+'&nbsp;'
+							+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증완료" disabled="disabled">'
+							+'</div>';
 					$('.phone-box').html(control);
 				} else {
 					Swal.fire({
@@ -609,9 +642,12 @@ $(document).ready(function() {
 							icon : 'error',
 							title : res
 						})
-						control ='<label for="floatingPhone">Phone</label>'	
+						control ='<label for="floatingPhone">Phone</label>'
+							+'<div id="phone-box">'
 							+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-							+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+							+'&nbsp;'+'&nbsp;'
+							+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+							+'</div>';
 						$('.phone-box').html(control);
 					}
 
@@ -658,7 +694,56 @@ $(document).ready(function() {
 			  				confirmButtonText: '확인',
 						}).then((result) => {
 							if (result.isConfirmed) {
-								window.close();
+
+								control = '<div class="form-floating">'
+						   	 			+'<br>'
+										+'<label for="floatingPassword">Password</label>'
+						   	 			+'<div id="phone-box">'
+						   	 			+'<input type="password" class="form-control" id="floatingPassword" placeholder="변경할 Password" required/>'
+						   	 			+'&nbsp;'+'&nbsp;'
+						   	 			+'<input type="button" id="changePWBtn" class="btn btn-dark" value="확인" >'
+						   	 			+'</div>'
+						   	 			+'</div>';
+								$('.changePW').html(control);
+								
+								$(document).on("click",'#changePWBtn',function() {
+									var pw=$("#floatingPassword").val();
+									$.ajax({
+										method : "POST",
+										url : "memberUpdate",
+										traditional : true,
+										data : {
+										id:id,
+										name:"",
+										pw:res,
+										changepw:pw,
+										prefer:[],
+										phoneNumber:""
+										},
+										success : function(data){
+										if(data != "비밀번호가 일치하지 않습니다." && data != "변경할 비밀번호가 기존 비밀번호와 같습니다."){
+											
+											Swal.fire({
+												  icon: 'success',
+												  title: data,
+												  showConfirmButton: false,
+												  timer: 2000
+											})
+										opener.parent.location.reload();
+										//window.close();
+										setTimeout(close, 2000);
+										}else{
+											//alert(data);
+											Swal.fire({
+												  icon: 'warning',
+												  title: data,
+												  showConfirmButton: false,
+												  timer: 2000
+											})
+										}
+										}
+								})
+							})
 							}
 						})
 					}
@@ -667,9 +752,12 @@ $(document).ready(function() {
 							icon : 'error',
 							title : res
 						})
-						control ='<label for="floatingPhone">Phone</label>'	
+						control ='<label for="floatingPhone">Phone</label>'
+							+'<div id="phone-box">'
 							+'<input type="tel" class="form-control" id="inputPhoneNumber" placeholder="숫자만 입력해주세요" required />'
-							+'<input type="button" id="sendPhoneNumber" class="btn btn-primary" value="인증번호 발송">';
+							+'&nbsp;'+'&nbsp;'
+							+'<input type="button" id="sendPhoneNumber" class="btn btn-outline-light" value="인증번호 발송">'
+							+'</div>';
 						$('.phone-box').html(control);
 					}
 

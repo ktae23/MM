@@ -8,10 +8,10 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('orderList')">
 </nav>
 <div class="container">
-	<h2>구매 이력</h2>
+	<h2 style="color:#fff">구매 이력</h2>
 	<div th:if="${movies != null}">
-		<div>총 구매 건수 : <span th:text="${#lists.size(movies)}"></span></div>
-	
+		<div style="color:#fff">총 구매 건수 : <span th:text="${#lists.size(movies)}"></span></div>
+		<br>
 		<table class="table table-striped">
 		<thead>
 				<tr>

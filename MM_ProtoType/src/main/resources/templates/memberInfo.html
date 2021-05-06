@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/common :: head('회원 정보')">
+<head th:replace="fragments/common :: head('회원 정보 : Movie Mentor')">
     <title>회원 정보</title>
 </head>
 <body>
@@ -68,9 +68,11 @@
 		<div>총 구매 건수 : 0</div>
 	</div>
 	<br><br>
-	<button class="btn btn-secondary my-2 my-sm-0" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">회원 정보 수정</button>
-	<button class="btn btn-secondary my-2 my-sm-0" id="memberDeleteBtn">회원 탈퇴</button>
-	
+	<!-- btn btn-secondary my-2 my-sm-0 -->
+	<div class="memberInfoBtns">
+	<button class="btn btn-outline-light" onclick="window.open('memberUpdateForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=700');">회원 정보 수정</button>
+	&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-danger" id="memberDeleteBtn">회원 탈퇴</button>
+	</div>
 </div>
 	    <script type="text/javascript" src="js/jquery.cookie.js"></script>
 </html>
