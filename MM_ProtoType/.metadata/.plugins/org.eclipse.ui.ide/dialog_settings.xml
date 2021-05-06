@@ -93,6 +93,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\zz238\MM_deploy\MM_ProtoType"/>
 			<item value="C:\Users\zz238\MM\MM_ProtoType"/>
 			<item value="C:\Users\zz238\test\MM_ProtoType"/>
 		</list>

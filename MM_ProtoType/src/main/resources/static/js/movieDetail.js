@@ -20,7 +20,7 @@ $(document).ready(function(){
     			+'<p> 상영시간 : ' + movie.movieRtime+'분'+'</p>'
     			+'<p> 가격 : '+new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(movie.moviePrice)+'</p>'
     			+'<p> 줄거리 : ' + movie.movieStory+'</p>'
-    			+'<div> <button class="btn btn-secondary my-2 my-sm-0" id="0" name="cartInsertBtn">장바구니 담기</button></div>'
+    			+'<div> <button class="btn btn-warning" id="0" name="cartInsertBtn">장바구니 담기</button></div>'
     			+'<br>'
 	        	+'<span style="display:none;">'+prev+'</span>'
 	        	+'<div><input class="btn btn-secondary my-2 my-sm-0" type="button" value="이전으로 돌아가기" id="prevMovie"> </div>'
