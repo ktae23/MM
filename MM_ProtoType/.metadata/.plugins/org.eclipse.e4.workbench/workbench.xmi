@@ -2,7 +2,11 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_wh48YZuBEeuhRMOG4JVupQ" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_wh48YpuBEeuhRMOG4JVupQ" bindingContexts="_wh48a5uBEeuhRMOG4JVupQ">
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;WebMvcConfig.java&quot; tooltip=&quot;C:\Users\zz238\MM_deploy\MM_ProtoType\src\main\java\com\proto\mm\util\WebMvcConfig.java&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/zz238/MM_deploy/MM_ProtoType/src/main/java/com/proto/mm/util/WebMvcConfig.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PosterService.java&quot; tooltip=&quot;C:\Users\zz238\MM_deploy\MM_ProtoType\src\main\java\com\proto\mm\service\PosterService.java&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/zz238/MM_deploy/MM_ProtoType/src/main/java/com/proto/mm/service/PosterService.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PosterController.java&quot; tooltip=&quot;C:\Users\zz238\MM_deploy\MM_ProtoType\src\main\java\com\proto\mm\controller\PosterController.java&quot;>&#xD;&#xA;&lt;persistable uri=&quot;file:/C:/Users/zz238/MM_deploy/MM_ProtoType/src/main/java/com/proto/mm/controller/PosterController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
+<<<<<<< HEAD
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_wh48YpuBEeuhRMOG4JVupQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_wt2UwpuBEeuhRMOG4JVupQ" label="%trimmedwindow.label.eclipseSDK" x="503" y="-24" width="1024" height="768">
+=======
   <children xsi:type="basic:TrimmedWindow" xmi:id="_wh48YpuBEeuhRMOG4JVupQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_wt2UwpuBEeuhRMOG4JVupQ" label="%trimmedwindow.label.eclipseSDK" x="460" y="174" width="1024" height="768">
+>>>>>>> 644ef2bb431d68a796088514985c8b0678710563
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -350,7 +354,15 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_wvcQMJuBEeuhRMOG4JVupQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_3d03AK5JEeuVwK-hrDZ8VQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_wibvW5uBEeuhRMOG4JVupQ"/>
+=======
+<<<<<<< HEAD
+        <children xsi:type="menu:HandledToolItem" xmi:id="_d8kcwK5pEeuPs7W7k_GQqA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_wibvW5uBEeuhRMOG4JVupQ"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_0MqHYK4sEeu2eb-5xo3nRg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_wibvW5uBEeuhRMOG4JVupQ"/>
+>>>>>>> 644ef2bb431d68a796088514985c8b0678710563
+>>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_wvcQMZuBEeuhRMOG4JVupQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -381,7 +393,15 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_wvcQOJuBEeuhRMOG4JVupQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_3d3TQq5JEeuVwK-hrDZ8VQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_wibu85uBEeuhRMOG4JVupQ"/>
+=======
+<<<<<<< HEAD
+        <children xsi:type="menu:HandledToolItem" xmi:id="_d8m5AK5pEeuPs7W7k_GQqA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_wibu85uBEeuhRMOG4JVupQ"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_0Mr8ka4sEeu2eb-5xo3nRg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_wibu85uBEeuhRMOG4JVupQ"/>
+>>>>>>> 644ef2bb431d68a796088514985c8b0678710563
+>>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_wvcQOZuBEeuhRMOG4JVupQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -3115,7 +3135,11 @@
   <addons xmi:id="_wh48d5uBEeuhRMOG4JVupQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_wh48eJuBEeuhRMOG4JVupQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_wiD7gJuBEeuhRMOG4JVupQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
+<<<<<<< HEAD
   <addons xmi:id="_3SgX0a5JEeuVwK-hrDZ8VQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+=======
+  <addons xmi:id="_dx5d0a5pEeuPs7W7k_GQqA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+>>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_wiVBQJuBEeuhRMOG4JVupQ" elementId="org.springframework.tooling.ls.eclipse.gotosymbol.commands.category" name="STS4"/>
   <categories xmi:id="_wiVoUJuBEeuhRMOG4JVupQ" elementId="org.eclipse.ui.category.edit" name="Edit"/>

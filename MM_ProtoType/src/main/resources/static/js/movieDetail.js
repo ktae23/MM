@@ -24,7 +24,11 @@ $(document).ready(function(){
     			+'<div> <button class="btn btn-warning" style="color:#000!important;" id="0" name="cartInsertBtn">장바구니 담기</button></div>'
     			+'<br>'
 	        	+'<span style="display:none;">'+prev+'</span>'
+<<<<<<< HEAD
 	     		+'<div><input class="btn btn-secondary my-2 my-sm-0" style="margin-bottom:15px! important;" type="button" value="이전으로 돌아가기" id="prevMovie"> </div>'
+=======
+	        	+'<div><input class="btn btn-secondary my-2 my-sm-0" style="margin-bottom:15px! important;" type="button" value="이전으로 돌아가기" id="prevMovie"> </div>'
+>>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
 	        	+'</div>'
 	        	+'</div>'
 	        	+'</div>'
