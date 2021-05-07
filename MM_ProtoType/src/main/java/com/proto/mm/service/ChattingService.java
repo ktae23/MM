@@ -49,7 +49,7 @@ public class ChattingService {
 
 		System.out.println(requestMessage);
 		try {
-			String apiURL = "https://7a47b2dd7e4f474c9f005449eea5498a.apigw.ntruss.com/custom/v1/4550/e81c94d585a0d8c22f3c5484ccf56f4d88c1179f7563d75da79ac2fa31a8c0ff";
+			String apiURL = "https://7a47b2dd7e4f474c9f005449eea5498a.apigw.ntruss.com/custom/v1/4571/67119488042ae085ddf63dddcef829349a6d994504752f146c4c4def7fb7830a";
 
 			URL url = new URL(apiURL);
 
@@ -57,7 +57,7 @@ public class ChattingService {
 				System.out.println("챗봇 질문 다시 시작");
 				String message = getReqMessage("다시");
 
-				String secretKey = "bHRDZUhhd2liTWpQUHhCbFJET0ltRUNnTEJFSU5udWc=";
+				String secretKey = "cVZMSEliR3J2REZHZVBpZnFLQVpTSFZ0QWNIUnNoTE0=";
 				String encodeBase64String = makeSignature(message, secretKey);
 
 				HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -77,7 +77,7 @@ public class ChattingService {
 			String message = getReqMessage(requestMessage);
 			// System.out.println("##" + message);
 
-			String secretKey = "bHRDZUhhd2liTWpQUHhCbFJET0ltRUNnTEJFSU5udWc=";
+			String secretKey = "cVZMSEliR3J2REZHZVBpZnFLQVpTSFZ0QWNIUnNoTE0=";
 			String encodeBase64String = makeSignature(message, secretKey);
 
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();

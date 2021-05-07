@@ -22,7 +22,7 @@ $(document).ready(
 				var control = "";
 				var date = formatAMPM(new Date());
 
-				if (who != "me") {
+				if (who == "me") {
 
 					control = '<li style="width:70%">'
 							+ '<div class="msj macro" style="margin-left:135px! important; margin-bottom:10px! important; margin-top:10px! important;">'

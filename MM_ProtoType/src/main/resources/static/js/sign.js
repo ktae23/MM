@@ -446,7 +446,10 @@ $(document).ready(function() {
 			}else{
 		var control ='<label for="floatingPhone">Phone</label>'
 					+'<div id="phone-box">'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 644ef2bb431d68a796088514985c8b0678710563
 					+'<input type="tel" class="form-control" id="inputPhoneNumber" value='+phoneNumber+' required>'
 					+'&nbsp;'+'&nbsp;'
 					+'<input type="button" id="sendPhoneNumberRetry" class="btn btn-outline-light" value="인증번호 재발송" ><br>'
@@ -515,10 +518,10 @@ $(document).ready(function() {
 							text : '인증번호가 올바르지 않습니다!'
 						})
 					}
+					})
+					}
 				})
-
 			}
-		})
 		}
 	});
 });
@@ -694,7 +697,10 @@ $(document).ready(function() {
 			  				confirmButtonText: '확인',
 						}).then((result) => {
 							if (result.isConfirmed) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 644ef2bb431d68a796088514985c8b0678710563
 								control = '<div class="form-floating">'
 						   	 			+'<br>'
 										+'<label for="floatingPassword">Password</label>'
