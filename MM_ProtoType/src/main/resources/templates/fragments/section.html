@@ -111,23 +111,10 @@
 						<span th:each="movie : ${movies}">
 					          <div class="col-lg-4 col-md-6 mb-4">
 					            <div align="center" class="card h-100-cart">
-<<<<<<< HEAD
-=======
-					           
->>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
 					              <div class="card-body-cart">
 					                <h4 class="card-title">
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
 					                </h4>
-<<<<<<< HEAD
-			                           <br>
-					                  <span th:each="poster : ${posters}">
-					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
-					                </span>
-				                     <br>
-					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
-										  	<br>
-=======
 					                <br>
 					                  <span th:each="poster : ${posters}">
 					                  	<img th:if="${movie.movieCode == poster.movieCode}" id="poster" th:alt="${movie.movieTitle}+' 포스터'" th:src="'/poster/' + ${poster.posterPath} + '/'"  width="25" height="25%"/>
@@ -135,7 +122,6 @@
 					                <br>
 					                <p th:text="${#numbers.formatCurrency(movie.moviePrice)}"></p>
 					              	<br>
->>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
 										 <button class="btn btn-warning" style="color:#000! important;" th:attrappend="id=${movieStat.index}" name="movieOrderBtn">카카오페이로 결제하기</button>
 										<br><br>
 										<div style="display:flex! important; margin-left:140px! important;">

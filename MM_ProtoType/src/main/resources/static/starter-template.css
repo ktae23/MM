@@ -9,11 +9,7 @@
 
 .search-box.active{
 	width: 350px;
-<<<<<<< HEAD
-	margin-right: 15px;
-=======
 	margin-right: 15px; 
->>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
 }
 
 .search-box input
@@ -93,12 +89,6 @@
     margin-right: 50px! important;
 }
 
-<<<<<<< HEAD
-=======
-.fa-times:before {
-    margin-right: 50px! important;
-}
->>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
 
 .memberInfoBtns{
 	float:right;
@@ -299,12 +289,9 @@ div.card-body{
 }
 
 div.card-body-cart{
-<<<<<<< HEAD
 	height:650px;
-		height:750px! important;
-=======
 	height:750px! important;
->>>>>>> decc15878e5fa103c8df4832f7f7b45947a2c896
+	height:750px! important;
 	border: 2px solid #DAA520;
 	width: 450px;
 }
