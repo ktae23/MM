@@ -47,8 +47,6 @@ ___
     📂 AWS EC2 Ubuntu <br/>
 	📂 Docker
 </details>
-
-
 <details>
     <summary>📁 Collaboration</summary>
 📂 <a href="https://github.com/moviementorteam/MM">Git-Hub-Organizations</a><br/>

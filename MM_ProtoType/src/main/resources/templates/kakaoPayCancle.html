@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
 
+	
+
+</script>
 </head>
-<body>
+<body style="text-align:center;"onLoad="setTimeout('window.close()',1000); opener.parent.location.href = 'cart';">
  
-카카오페이 결제가 취소되었습니다.
+<h1>카카오페이 결제가 취소되었습니다.</h1>
 <br>
-<input type="button" id="kakaoCancleBtn" value="닫기" onClick="kakaoCancleBtn_close();"> 
 
 </body>
-<script>
-function kakaoCancleBtn_close(){
-	opener.parent.location.href = "cart";
-	window.close();	
-}
-</script>
+
 </html>
