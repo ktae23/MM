@@ -75,7 +75,6 @@
 	cursor: pointer;
 	transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
 .search-box .cancel-btn.active
 {
 	right: -40px;
@@ -85,10 +84,13 @@
 }
 */
 
+.fa-times{
+	color: #fff;
+}
+
 .fa-times:before {
     margin-right: 50px! important;
 }
-
 
 .memberInfoBtns{
 	float:right;
@@ -289,8 +291,6 @@ div.card-body{
 }
 
 div.card-body-cart{
-	height:650px;
-	height:750px! important;
 	height:750px! important;
 	border: 2px solid #DAA520;
 	width: 450px;

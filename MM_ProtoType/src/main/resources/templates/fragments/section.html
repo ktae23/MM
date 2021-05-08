@@ -43,7 +43,6 @@
 			              <div class="card-body">
 			               <!--  <h4 class="card-title">
 			                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
-
 			                </h4> -->
 			                <p th:text="'장르 : ' + ${movie.movieGenre}"></p>
 			                <p th:text="'평점 : ' + ${movie.movieRating}+'점'"></p>
@@ -111,6 +110,7 @@
 						<span th:each="movie : ${movies}">
 					          <div class="col-lg-4 col-md-6 mb-4">
 					            <div align="center" class="card h-100-cart">
+					           
 					              <div class="card-body-cart">
 					                <h4 class="card-title">
 					                  <p th:text="${movie.movieTitle}" class="movieTitle"></p>
@@ -141,32 +141,3 @@
 		</article>
 	</section>
 </body>
-
-                    
-                     <!-- responses에  role 필드를 넣어서 user일 경우와 MM일 경우로 나누어 입력 -->
-                    <!-- <div class="panel-body msg_container_base">
-	                    <div class="User_Response" th:if="${responses.role} == user" th:each="response : ${responses}">
-	                        <div class="row msg_container base_sent">
-	                            <div class="col-md-10 col-xs-10">
-	                                <div class="messages msg_sent">
-	                                    <p th:text="${response}>대화 시작</p>
-	                                </div>
-	                            </div>
-	                            <div class="col-md-2 col-xs-2 avatar" style="max-height:auto;">
-	                                <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-	                            </div>
-	                        </div>
-	                    </div>
-                        <div class="MM_Response"  th:if="${responses.role} == MM" th:each="response : ${responses}">
-	                        <div class="row msg_container base_receive">
-	                            <div class="col-md-2 col-xs-2 avatar"  style="max-height:auto;">
-	                                <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
-	                            </div>
-	                            <div class="col-md-10 col-xs-10">
-	                                <div class="messages msg_receive">
-	                                    <p>어떤 영화가 궁금하시나요?</p>
-                                </div>
-	                         </div>
-	                        </div>
-                        </div>
-                    </div> -->
