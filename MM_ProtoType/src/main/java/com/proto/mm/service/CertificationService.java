@@ -27,7 +27,7 @@ public class CertificationService {
 	        // 4 params(to, from, type, text) are mandatory. must be filled
 	        HashMap<String, String> params = new HashMap<String, String>();
 	        params.put("to", phoneNumber);    // 수신전화번호
-	        params.put("from", "01093343982");    // 발신전화번호. 진짜 테스트하고싶으시면 제 번호로 바꿔서 보내셔야합니다! 제 번호 모르시면 카톡에서 물어봐주세요ㅎㅎ
+	        params.put("from", "01096364624");    // 발신전화번호. 진짜 테스트하고싶으시면 제 번호로 바꿔서 보내셔야합니다! 제 번호 모르시면 카톡에서 물어봐주세요ㅎㅎ
 	        params.put("type", "SMS");
 	        params.put("text", "Movie Mentor 휴대폰인증 메시지 : 인증번호는" + "["+cerNum+"]" + "입니다.");
 	        params.put("app_version", "MM app 1.1"); // application name and version
