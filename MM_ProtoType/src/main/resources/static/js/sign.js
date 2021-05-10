@@ -309,7 +309,8 @@ $(document).ready(function(){
 		var phoneNumber = $('#inputPhoneNumber').val();
 		var certify = $('#sendPhoneNumber').val();
 		var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-		
+		var regExpPW = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/;
+
 		var prefer_arr = [];
 		$("input[name='preference']:checked").each(function() {
 				var prefer = $(this).val();
@@ -343,6 +344,16 @@ $(document).ready(function(){
 			
 			Swal.fire({
 				  title: '아이디는 이메일 형식이어야 합니다.',
+				  icon: 'warning',
+				  showConfirmButton: false,
+				  timer: 1500
+			})
+
+		}else if(!regExpPW.test(pw)){
+			//alert("아이디 값은 필수 입력입니다.");
+			
+			Swal.fire({
+				  title: '비밀번호는 알파벳 대소문자,숫자,특수문자 포함 8자리 이상이어야 합니다.',
 				  icon: 'warning',
 				  showConfirmButton: false,
 				  timer: 1500
