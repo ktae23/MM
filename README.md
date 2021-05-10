@@ -117,4 +117,4 @@ ___
 - Oracle XE : SQL Developer
 - TABLE : `USER`, `MOVIE`, `POSTER`, `CART`, `ORDERS`
 
-![mm_erd_2021.04.17](https://github.com/ktae23/MM/blob/master/mm_imgs/mm_erd_2021.04.17.png)
+![mm_erd_2021.04.17](https://github.com/ktae23/MM/blob/master/DOCS/mm_erd_2021.05.10.png)
