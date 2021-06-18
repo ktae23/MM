@@ -35,15 +35,15 @@ public class PosterController {
     public void downLoad(@RequestParam String movieTitle, ModelMap model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		  posterService.posterDownload(model, request, response);
-		  Poster poster = (Poster) model.getAttribute("poster");
+
 		  Movie movie = (Movie) model.getAttribute("movie");
 
 		  
 		  String dFile = (String) model.getAttribute("dFile");
-		  System.out.println("파일 이름 : " + dFile);
-		  
 
-		  String upDir = "/"+ File.separator + "MM"+File.separator+"movie_imgs";
+		  
+		  // String upDir = "/"+ File.separator + "MM"+File.separator+"movie_imgs";
+		  String upDir = "/C:/Users/zz238/"+ File.separator + "MM"+File.separator+"movie_imgs";
 		  String path = upDir+File.separator+dFile;
 		  
 		  File file = new File(path);
