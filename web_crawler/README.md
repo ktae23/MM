@@ -10,15 +10,14 @@
 
 ### 프로젝트 구조
 
-![프로젝트 구조](https://github.com/ktae23/TIL/blob/master/python/imgs/project_structure.png)
-
+![프로젝트 구조](https://github.com/ktae23/MM/blob/master/web_crawler/imgs/project_structure.png)
 
 
 <br/>
 
 ### 네이버 영화 페이지
 
-![영화페이지](https://github.com/ktae23/TIL/blob/master/python/imgs/naver_movie_page.png)
+![영화페이지](https://github.com/ktae23/MM/blob/master/web_crawler/imgs/naver_movie_page.png)
 
 <br/>
 
@@ -291,4 +290,4 @@ def crawling(start_code, finish_code):
 
 ### 실행 결과
 
-![결과](https://github.com/ktae23/TIL/blob/master/python/imgs/crawling_result.png)
+![결과](https://github.com/ktae23/MM/blob/master/web_crawler/imgs/crawling_result.png)
